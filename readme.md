@@ -145,3 +145,113 @@ server/
  ├── package.json
  ├── README.md
 ```
+
+## 🔗 API Endpoints
+
+### ✅ Jobs
+
+- GET /api/v1/jobs
+-Query params:
+- what
+- where
+- page
+- skills
+- datePosted
+- jobType
+- workMod
+
+#### Example:
+
+```
+GET /api/v1/jobs?what=react&where=india&page=1&skills=node,mongodb&jobType=full-time&workMode=remote
+
+```
+
+### ✅ Job Details
+
+- ```GET /api/v1/jobs/:id```
+
+### ✅ Applications
+
+- ```GET /api/v1/applications```
+- ```POST /api/v1/applications```
+- ```PATCH /api/v1/applications/:id/status```
+- ```DELETE /api/v1/applications/:id```
+
+### ✅ Resume
+
+- ```GET /api/v1/resume```
+- ```POST /api/v1/resume/upload```
+
+#### Resume file saved at:
+```
+http://localhost:8000/uploads/<filename>
+```
+
+### ✅ Match Score (AI)
+
+- ```POST /api/v1/match-score```
+
+Body:
+```json
+{
+  "jobTitle": "MERN Developer",
+  "jobDescription": "..."
+}
+```
+
+### ✅ AI Assistant
+
+- ```POST /api/v1/assistant```
+
+#### Body:
+```json
+{
+  "message": "Remote React jobs in Bangalore"
+}
+```
+## ⚠️ Important Notes
+### 1️⃣ Gemini Quota Issue
+
+#### If you see:
+```
+- 429 Too Many Requests
+- Quota exceeded
+```
+#### Then Gemini API free tier quota is finished.
+
+#### Solution:
+
+- Enable billing
+- Or reduce requests
+- Or add caching in backend
+
+
+## 2️⃣ CORS Fix (DELETE issue)
+
+#### Make sure Fastify CORS allows methods:
+```json
+
+fastify.register(cors, {
+  origin: "*",
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"]
+});
+
+```
+## 👤 Author
+
+### Rahul Kumar
+- 📧 Email: rahulkumar8340527941@gmail.com
+
+- 🔗 LinkedIn: https://www.linkedin.com/in/rahul-kumar-3990b618b
+
+- 💻 GitHub: https://github.com/ahulkumar1234
+
+## ⭐ Future Improvements
+
+- MongoDB integration
+- Authentication (Login/Register)
+- Saved jobs feature
+- AI caching (match score stored per job)
+- Better resume parsing (OCR support)
+- Deployment (Render / Railway / Vercel)
