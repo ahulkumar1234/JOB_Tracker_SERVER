@@ -40,16 +40,20 @@ fastify.register(assistantRoutes, { prefix: "/api/v1/assistant" });
 
 // Start server
 const start = async () => {
-  try {
-    const PORT = process.env.PORT || 5000;
+    try {
+        const PORT = process.env.PORT || 8000;
 
-    await fastify.listen({ port: PORT, host: "0.0.0.0" });
+        const address = await fastify.listen({
+            port: PORT,
+            host: "0.0.0.0",
+        });
 
-    console.log(`Server is running on port ${PORT}`);
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
+        console.log("Server running at:", address);
+    } catch (err) {
+        console.log(err);
+        process.exit(1);
+    }
 };
 
 start();
+
