@@ -82,3 +82,66 @@ Response:
 }
 ```
 ## ⚙️ Setup Instructions
+
+### 1️⃣ Clone Repo
+```
+git clone <your-repo-url>
+cd job-tracker/server
+```
+### 2️⃣ Install Dependencies
+
+```
+npm install
+```
+### Create ```.env```
+#### Create a ```.env``` file in ```/server```
+```
+PORT=8000
+
+ADZUNA_APP_ID=your_adzuna_app_id
+ADZUNA_APP_KEY=your_adzuna_app_key
+
+GEMINI_API_KEY=your_gemini_api_key
+```
+### ▶️ Run Backend
+```
+npm run dev
+```
+#### Backend will run at:
+```
+http://localhost:8000
+```
+### http://localhost:8000
+```
+server/
+ ├── src/
+ │    ├── server.js
+ │
+ │    ├── routes/
+ │    │    ├── Jobs.routes.js
+ │    │    ├── applications.routes.js
+ │    │    ├── Resume.routes.js
+ │    │    ├── assistant.routes.js
+ │    │    ├── match.routes.js
+ │
+ │    ├── controller/
+ │    │    ├── jobs.controller.js
+ │    │    ├── applications.controller.js
+ │    │    ├── resume.controller.js
+ │    │    ├── assistant.controller.js
+ │    │    ├── match.controller.js
+ │
+ │    ├── services/
+ │    │    ├── matchScore.service.js
+ │    │    ├── assistant.service.js
+ │
+ │    ├── utils/
+ │    │    ├── extractResumeText.utils.js
+ │
+ ├── uploads/
+ ├── data/
+ │    ├── applications.json
+ │    ├── resumes.json
+ ├── package.json
+ ├── README.md
+```

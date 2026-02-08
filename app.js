@@ -9,8 +9,8 @@ const cors = require("@fastify/cors");
 
 
 // Routes
-const jobsRoutes = require("./routes/Jobs.routes");
-const resumeRoutes = require("./routes/Resume.routes");
+const jobsRoutes = require("./routes/jobs.routes");
+const resumeRoutes = require("./routes/resume.routes");
 const matchRoutes = require("./routes/match.routes");
 const assistantRoutes = require("./routes/assistant.routes");
 
