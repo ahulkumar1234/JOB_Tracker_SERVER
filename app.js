@@ -13,6 +13,7 @@ const jobsRoutes = require("./routes/jobs.routes");
 const resumeRoutes = require("./routes/resume.routes");
 const matchRoutes = require("./routes/match.routes");
 const assistantRoutes = require("./routes/assistant.routes");
+const envVariables = require("./config/envVariables");
 
 //for uploading resume
 fastify.register(multipart);
@@ -41,7 +42,7 @@ fastify.register(assistantRoutes, { prefix: "/api/v1/assistant" });
 // Start server
 const start = async () => {
     try {
-        const PORT = process.env.PORT || 8000;
+        const PORT = envVariables.PORT || 8000;
 
         const address = await fastify.listen({
             port: PORT,
