@@ -78,7 +78,10 @@ const uploadResume = async (request, reply) => {
 
     await fs.promises.writeFile(filepath, await data.toBuffer());
 
-    const baseUrl = "https://job-tracker-server-ln8r.onrender.com";
+    const baseUrl = request.headers["x-forwarded-proto"]
+      ? `${request.headers["x-forwarded-proto"]}://${request.headers.host}`
+      : `http://${request.headers.host}`;
+
 
     // ✅ create new resume record
     const newResume = {
