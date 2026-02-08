@@ -18,7 +18,7 @@ const assistantRoutes = require("./routes/assistant.routes");
 fastify.register(multipart);
 // CORS
 fastify.register(cors, {
-    origin: ['http://localhost:5173', 'https://code-sage-frontend-two.vercel.app'],
+    origin: ['*'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 });
