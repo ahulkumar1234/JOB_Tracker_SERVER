@@ -78,7 +78,7 @@ const uploadResume = async (request, reply) => {
 
     await fs.promises.writeFile(filepath, await data.toBuffer());
 
-    const baseUrl = "http://localhost:8000";
+    const baseUrl = "https://job-tracker-server-ln8r.onrender.com";
 
     // ✅ create new resume record
     const newResume = {
