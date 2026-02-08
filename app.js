@@ -19,7 +19,7 @@ const envVariables = require("./config/envVariables");
 fastify.register(multipart);
 // CORS
 fastify.register(cors, {
-    origin: ['*'],
+    origin: ['http://localhost:5173', 'https://ai-job-tracker-gilt.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 });

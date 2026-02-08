@@ -23,7 +23,12 @@ const readApplications = () => {
 };
 
 const writeApplications = (apps) => {
-  fs.writeFileSync(filePath, JSON.stringify(apps, null, 2));
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(apps, null, 2));
+  } catch (err) {
+    console.log("WRITE ERROR:", err.message);
+    return reply.code(500).send({ success: false, message: "Server error" });
+  }
 };
 
 // GET all applications
