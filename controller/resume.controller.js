@@ -78,9 +78,8 @@ const uploadResume = async (request, reply) => {
 
     await fs.promises.writeFile(filepath, await data.toBuffer());
 
-    const baseUrl = request.headers["x-forwarded-proto"]
-      ? `${request.headers["x-forwarded-proto"]}://${request.headers.host}`
-      : `http://${request.headers.host}`;
+    const baseUrl  = `${request.protocol}://${request.hostname}`;
+
 
 
     // ✅ create new resume record
